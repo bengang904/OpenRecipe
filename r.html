@@ -25,9 +25,6 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-bottom: 30px;
-            display: flex;
-            flex-direction: column; 
-            align-items: center; 
         }
         .recipe-card h1 {
             color: #e67e22;
@@ -44,8 +41,12 @@
             object-fit: cover;
             border-radius: 4px;
         }
-        .recipe-content {
-            flex-grow: 1;
+        .recipe-content h3 {
+            margin-top: 15px;
+            color: #444;
+        }
+        .recipe-content ul, .recipe-content ol {
+            margin: 8px 0 15px 20px;
         }
         .recipe-date {
             text-align: right;
@@ -58,26 +59,60 @@
 <body>
 
 <div class="container">
-    <div id="recipe-container">
-    </div>
+    <div id="recipe-container"></div>
     <p style="text-align: center;">查看<a href="rss.xml" target="_blank"> RSS </a>源。</p>
 </div>
 
 <script>
+    function formatDescription(text) {
+        text = text.trim();
+        const lines = text.split(/\r?\n/).map(l => l.trim()).filter(l => l);
+
+        let html = '';
+        let currentList = null;
+
+        lines.forEach(line => {
+            if (line.startsWith("准备材料")) {
+                if (currentList) { html += `</${currentList}>`; currentList = null; }
+                html += "<h3>准备材料</h3><ul>";
+                currentList = "ul";
+            } else if (line.startsWith("烹饪步骤")) {
+                if (currentList) { html += `</${currentList}>`; currentList = null; }
+                html += "<h3>烹饪步骤</h3><ol>";
+                currentList = "ol";
+            } else if (/^\d+\./.test(line)) {
+                html += `<li>${line.replace(/^\d+\.\s*/, '')}</li>`;
+            } else if (currentList === "ul") {
+                html += `<li>${line}</li>`;
+            }
+        });
+
+        if (currentList) {
+            html += `</${currentList}>`;
+        }
+
+        return html;
+    }
+
     fetch('rss.xml')
         .then(response => response.text())
         .then(str => {
             const parser = new DOMParser();
             const xmlDoc = parser.parseFromString(str, "text/xml");
-            
+
             const items = xmlDoc.querySelectorAll("item");
             const container = document.getElementById("recipe-container");
 
-            items.forEach(item => {
-                const title = item.querySelector("title").textContent;
-                const description = item.querySelector("description").textContent;
-                
-                const pubDate = item.querySelector("pubDate").textContent;
+            items.forEach((item) => {
+                const title = item.querySelector("title")?.textContent || "无标题";
+                let description = item.querySelector("description")?.textContent || "";
+                let descriptionContent = formatDescription(description);
+
+                const guid = item.querySelector("guid")?.textContent || "";
+                // 提取 guid 里的后缀，比如 openrecipe-mushroom-20250923-01 → 20250923-01
+                let recipeId = guid.match(/(\d{8}-\d{2})$/)?.[1] || guid;
+
+                const pubDate = item.querySelector("pubDate")?.textContent || new Date().toISOString();
                 const formattedDate = new Date(pubDate).toLocaleString('zh-CN', {
                     year: 'numeric',
                     month: 'long',
@@ -90,36 +125,52 @@
 
                 const recipeCard = document.createElement("div");
                 recipeCard.classList.add("recipe-card");
+                recipeCard.id = recipeId;
 
                 const recipeTitle = document.createElement("h1");
                 recipeTitle.textContent = title;
+                recipeCard.appendChild(recipeTitle);
 
-                // 检查是否有 enclosure 标签
+                // 图片
                 const enclosure = item.querySelector("enclosure");
                 if (enclosure) {
                     const imageUrl = enclosure.getAttribute("url");
-                    const recipeImage = document.createElement("img");
-                    recipeImage.src = imageUrl;
-                    recipeImage.alt = title; // 设置图片的alt文本
-                    recipeCard.appendChild(recipeImage);
+                    if (imageUrl) {
+                        const recipeImage = document.createElement("img");
+                        recipeImage.src = imageUrl;
+                        recipeImage.alt = title; 
+                        recipeCard.appendChild(recipeImage);
+                    }
                 }
-                
-                // 将标题放在图片之后
-                recipeCard.appendChild(recipeTitle);
 
                 const recipeDescription = document.createElement("div");
-                recipeDescription.innerHTML = description.replace(/\n/g, '<br>');
+                recipeDescription.classList.add("recipe-content");
+                recipeDescription.innerHTML = descriptionContent;
+                recipeCard.appendChild(recipeDescription);
 
-                // 创建并添加时间元素
                 const dateElement = document.createElement("p");
                 dateElement.classList.add("recipe-date");
                 dateElement.textContent = `发布于：${formattedDate}`;
-
-                recipeCard.appendChild(recipeDescription);
                 recipeCard.appendChild(dateElement); 
 
                 container.appendChild(recipeCard);
             });
+
+            // 定位到特定食谱
+            const params = new URLSearchParams(window.location.search);
+            const idParam = params.get("id");
+            const hash = window.location.hash;
+
+            let target = null;
+            if (idParam) {
+                target = document.getElementById(idParam);
+            } else if (hash) {
+                target = document.querySelector(hash);
+            }
+
+            if (target) {
+                target.scrollIntoView({ behavior: "smooth" });
+            }
         })
         .catch(error => console.error('Error fetching the XML file:', error));
 </script>
