@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="shortcut icon" href="logo.jpg" type="image/jpeg">
+    <title>食谱列表 - OpenRecipe</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .recipe-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        .recipe-card h1 {
+            color: #e67e22;
+            text-align: center;
+            border-bottom: 2px solid #e67e22;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="recipe-container">
+        </div>
+        <p style="text-align: center;">查看<a href="rss.xml" target="_blank"> RSS </a>源。</p>
+</div>
+
+<script>
+    // 使用 fetch API 加载 rss.xml 文件
+    fetch('rss.xml')
+        .then(response => response.text())
+        .then(str => {
+            // 将文本解析为 XML 文档
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(str, "text/xml");
+            
+            // 获取所有 <item> 标签
+            const items = xmlDoc.querySelectorAll("item");
+            const container = document.getElementById("recipe-container");
+
+            // 遍历每个食谱项目并添加到页面
+            items.forEach(item => {
+                const title = item.querySelector("title").textContent;
+                const description = item.querySelector("description").textContent;
+
+                const recipeCard = document.createElement("div");
+                recipeCard.classList.add("recipe-card");
+
+                const recipeTitle = document.createElement("h1");
+                recipeTitle.textContent = title;
+
+                const recipeDescription = document.createElement("div");
+                recipeDescription.innerHTML = description; // 使用 innerHTML 来解析 XML 中的 HTML 标签
+
+                recipeCard.appendChild(recipeTitle);
+                recipeCard.appendChild(recipeDescription);
+                container.appendChild(recipeCard);
+            });
+        })
+        .catch(error => console.error('Error fetching the XML file:', error));
+</script>
+
+</body>
+</html>
