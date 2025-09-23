@@ -31,6 +31,24 @@
             text-align: center;
             border-bottom: 2px solid #e67e22;
             padding-bottom: 10px;
+            margin-top: 0;
+        }
+        .recipe-card img {
+            display: block; 
+            margin: 0 auto 20px auto; 
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        .recipe-content {
+            flex-grow: 1;
+        }
+        .recipe-date {
+            text-align: right;
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -38,27 +56,34 @@
 
 <div class="container">
     <div id="recipe-container">
-        </div>
-        <p style="text-align: center;">查看<a href="rss.xml" target="_blank"> RSS </a>源。</p>
+    </div>
+    <p style="text-align: center;">查看<a href="rss.xml" target="_blank"> RSS </a>源。</p>
 </div>
 
 <script>
-    // 使用 fetch API 加载 rss.xml 文件
     fetch('rss.xml')
         .then(response => response.text())
         .then(str => {
-            // 将文本解析为 XML 文档
             const parser = new DOMParser();
             const xmlDoc = parser.parseFromString(str, "text/xml");
             
-            // 获取所有 <item> 标签
             const items = xmlDoc.querySelectorAll("item");
             const container = document.getElementById("recipe-container");
 
-            // 遍历每个食谱项目并添加到页面
             items.forEach(item => {
                 const title = item.querySelector("title").textContent;
                 const description = item.querySelector("description").textContent;
+                
+                const pubDate = item.querySelector("pubDate").textContent;
+                const formattedDate = new Date(pubDate).toLocaleString('zh-CN', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: false
+                });
 
                 const recipeCard = document.createElement("div");
                 recipeCard.classList.add("recipe-card");
@@ -67,10 +92,17 @@
                 recipeTitle.textContent = title;
 
                 const recipeDescription = document.createElement("div");
-                recipeDescription.innerHTML = description; // 使用 innerHTML 来解析 XML 中的 HTML 标签
+                recipeDescription.innerHTML = description;
+
+                // 创建并添加时间元素
+                const dateElement = document.createElement("p");
+                dateElement.classList.add("recipe-date");
+                dateElement.textContent = `发布于：${formattedDate}`;
 
                 recipeCard.appendChild(recipeTitle);
                 recipeCard.appendChild(recipeDescription);
+                recipeCard.appendChild(dateElement); 
+
                 container.appendChild(recipeCard);
             });
         })
