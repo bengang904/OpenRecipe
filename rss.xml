@@ -2,16 +2,21 @@
 <rss version="2.0">
   <channel>
     <title>OpenRecipe - 开源食谱</title>
-    <link>https://www.yourwebsite.com</link>
+    <link>https://or.2024-10-24.zip</link>
     <description>一个免费开源的食谱项目，分享健康美味的DIY食谱。</description>
     <lastBuildDate>Tue, 24 Oct 2024 10:00:00 +0800</lastBuildDate>
     <language>zh-cn</language>
+    <image>
+      <url>https://or.2024-10-24.zip/logo.jpg</url>
+      <title>OpenRecipe - 开源食谱</title>
+      <link>https://or.2024-10-24.zip</link>
+    </image>
 
     <item>
       <title>香煎蘑菇</title>
-      <link>https://www.yourwebsite.com/recipes/mushroom.html</link>
       <description>
         <![CDATA[
+          <img src="images/20250923-01.jpg" alt="香煎蘑菇" />
           <h2>食谱前言</h2>
           <p><strong>饮用水：</strong>建议使用矿泉水/纯净饮用水。</p>
           <p><strong>食用油：</strong>推荐使用橄榄油。</p>
@@ -32,15 +37,15 @@
           </ol>
         ]]>
       </description>
-      <guid isPermaLink="false">mushroom-recipe-20241024-01</guid>
-      <pubDate>Tue, 24 Oct 2024 09:30:00 +0800</pubDate>
+      <guid isPermaLink="false">mushroom-recipe-20250923-01</guid>
+      <pubDate>Tue, 23 Sep 2025 20:50:00 +0800</pubDate>
     </item>
 
     <item>
       <title>自制酸奶</title>
-      <link>https://www.yourwebsite.com/recipes/yogurt.html</link>
       <description>
         <![CDATA[
+          <img src="images/20250923-02.jpg" alt="自制酸奶" />
           <h2>食谱前言</h2>
           <p><strong>制作工具：</strong>酸奶机或保温性能良好的容器。</p>
           <p><strong>菌种：</strong>市售原味酸奶或专门的酸奶发酵剂。</p>
@@ -59,8 +64,8 @@
           </ol>
         ]]>
       </description>
-      <guid isPermaLink="false">yogurt-recipe-20241024-02</guid>
-      <pubDate>Tue, 24 Oct 2024 10:00:00 +0800</pubDate>
+      <guid isPermaLink="false">mushroom-recipe-20250923-02</guid>
+      <pubDate>Tue, 23 Sep 2025 20:51:00 +0800</pubDate>
     </item>
 
   </channel>
