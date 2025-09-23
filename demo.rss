@@ -1,18 +1,18 @@
-        <rss version="2.0">
-            <channel>
-                <title>您的网站标题</title>
-                <link>您的网站主页URL</link>
-                <description>您的网站描述</description>
-                <language>zh-cn</language>
-                <lastBuildDate>Mon, 23 Sep 2025 12:00:00 +0000</lastBuildDate>
-
-                <!-- 在这里添加网站图标 -->
-                <image>
-                    <icon>https://www.redditstatic.com/icon.png/</icon>
-                    <title>您的网站标题</title>
-                    <link>https://example.com/index.html</link>
-                </image>
-
-                <!-- 其他RSS条目 -->
-            </channel>
-        </rss>
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+  <title>example</title>
+  <link>https://or.2024-10-24.zip/</link>
+  <description>example</description>
+  <image>
+    <url>https://or.2024-10-24.zip/logo.jpg</url>
+    <title>example image</title>
+    <link>https://or.2024-10-24.zip/</link>
+  </image>
+  <item>
+    <title>example item</title>
+    <link>http://example/item</link>
+    <description>example</description>
+  </item>
+</channel>
+</rss>
