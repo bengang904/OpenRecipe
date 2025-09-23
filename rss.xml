@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
+<rss version="2.0" xmlns:media="https://or.2024-10-24.zip/">
   <channel>
     <title>OpenRecipe - 开源食谱</title>
     <link>https://or.2024-10-24.zip</link>
     <description>一个免费开源的食谱项目，分享健康美味的DIY食谱。</description>
      <image>
-        <url>https://www.redditstatic.com/icon.png</url>   
+        <url>https://or.2024-10-24.zip/logo.jpg</url>   
         <title>OpenRecipe</title>                    
         <link>https://or.2024-10-24.zip</link>    
     </image>
@@ -64,3 +64,4 @@
     </item>
   </channel>
 </rss>
+
