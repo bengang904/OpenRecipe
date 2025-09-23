@@ -4,10 +4,11 @@
     <title>OpenRecipe - 开源食谱</title>
     <link>https://or.2024-10-24.zip</link>
     <description>一个免费开源的食谱项目，分享健康美味的DIY食谱。</description>
-    <lastBuildDate>Tue, 24 Oct 2024 10:00:00 +0800</lastBuildDate>
-    <language>zh-cn</language>
-    <icon>https://www.redditstatic.com/icon.png</icon>
-
+     <image>
+        <url>https://www.redditstatic.com/icon.png</url>   
+        <title>OpenRecipe</title>                    
+        <link>https://or.2024-10-24.zip</link>    
+    </image>
     <item>
       <title>香煎蘑菇</title>
       <link>https://or.2024-10-24.zip/r.html?id=20250923-01</link>
