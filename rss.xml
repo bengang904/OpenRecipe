@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>OpenRecipe - 开源食谱</title>
     <link>https://or.2024-10-24.zip</link>
@@ -14,26 +14,60 @@
 
     <item>
       <title>香煎蘑菇</title>
-      <description>
-        饮用水：建议使用矿泉水/纯净饮用水。
-        食用油：推荐使用橄榄油。
-        所需食材：新鲜蘑菇、大蒜、适量盐、少许黑胡椒粉、食用油。
-        烹饪步骤：蘑菇洗净对半切开，大蒜切末。将蘑菇放入碗中，和食用油、盐、黑胡椒粉混合在一起，搅拌均匀。在中火上加热煎锅，等待锅热后，将蘑菇放入锅中，时不时翻动。直到蘑菇两面金黄且微微变软即可。
-      </description>
-      <enclosure url="https://or.2024-10-24.zip/images/20250923-01.jpg" length="100000" type="image/jpeg" />
+      <link>https://or.2024-10-24.zip/recipes/mushroom.html</link>
+      <description>简单易做的香煎蘑菇，健康又美味！</description>
+      <content:encoded>
+        <![CDATA[
+          <img src="https://or.2024-10-24.zip/images/20250923-01.jpg" alt="香煎蘑菇" />
+          <h2>食谱前言</h2>
+          <p><strong>饮用水：</strong>建议使用矿泉水/纯净饮用水。</p>
+          <p><strong>食用油：</strong>推荐使用橄榄油。</p>
+          <h2>所需食材</h2>
+          <ul>
+            <li>新鲜蘑菇</li>
+            <li>大蒜</li>
+            <li>适量盐</li>
+            <li>少许黑胡椒粉</li>
+            <li>食用油</li>
+          </ul>
+          <h2>烹饪步骤</h2>
+          <ol>
+            <li>蘑菇洗净对半切开，大蒜切末。</li>
+            <li>将蘑菇放入碗中，和食用油、盐、黑胡椒粉混合在一起，搅拌均匀。</li>
+            <li>在中火上加热煎锅，等待锅热后，将蘑菇放入锅中，时不时翻动。</li>
+            <li>直到蘑菇两面金黄且微微变软即可。</li>
+          </ol>
+        ]]>
+      </content:encoded>
       <guid isPermaLink="false">openrecipe-mushroom-20250923-01</guid>
       <pubDate>Tue, 23 Sep 2025 20:50:00 +0800</pubDate>
     </item>
 
     <item>
       <title>自制酸奶</title>
-      <description>
-        制作工具：酸奶机或保温性能良好的容器。
-        菌种：市售原味酸奶或专门的酸奶发酵剂。
-        所需食材：牛奶（全脂或低脂）、酸奶发酵剂或原味酸奶。
-        制作步骤：将牛奶加热至约40-45℃（温热但不烫手）。在温热的牛奶中加入酸奶发酵剂，轻轻搅拌均匀。将混合好的牛奶倒入酸奶机的内胆或准备好的容器中。将容器放入酸奶机中，设置好时间（通常为8-10小时）进行发酵。发酵完成后，将酸奶取出放入冰箱冷藏几小时，使其口感更佳。
-      </description>
-      <enclosure url="https://or.2024-10-24.zip/images/20250923-02.jpg" length="100000" type="image/jpeg" />
+      <link>https://or.2024-10-24.zip/recipes/yogurt.html</link>
+      <description>在家轻松制作美味又健康的酸奶。</description>
+      <content:encoded>
+        <![CDATA[
+          <img src="https://or.2024-10-24.zip/images/20250923-02.jpg" alt="自制酸奶" />
+          <h2>食谱前言</h2>
+          <p><strong>制作工具：</strong>酸奶机或保温性能良好的容器。</p>
+          <p><strong>菌种：</strong>市售原味酸奶或专门的酸奶发酵剂。</p>
+          <h2>所需食材</h2>
+          <ul>
+            <li>牛奶（全脂或低脂）</li>
+            <li>酸奶发酵剂或原味酸奶</li>
+          </ul>
+          <h2>制作步骤</h2>
+          <ol>
+            <li>将牛奶加热至约40-45℃（温热但不烫手）。</li>
+            <li>在温热的牛奶中加入酸奶发酵剂，轻轻搅拌均匀。</li>
+            <li>将混合好的牛奶倒入酸奶机的内胆或准备好的容器中。</li>
+            <li>将容器放入酸奶机中，设置好时间（通常为8-10小时）进行发酵。</li>
+            <li>发酵完成后，将酸奶取出放入冰箱冷藏几小时，使其口感更佳。</li>
+          </ol>
+        ]]>
+      </content:encoded>
       <guid isPermaLink="false">openrecipe-yogurt-20250923-02</guid>
       <pubDate>Tue, 23 Sep 2025 20:51:00 +0800</pubDate>
     </item>
