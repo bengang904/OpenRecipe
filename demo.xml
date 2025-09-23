@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
+  <title>OpenRecipe - 开源食谱</title>
+  <link rel="alternate" href="https://or.2024-10-24.zip/" type="text/html"/>
+  <id>https://example.com/</id>
+  <updated>2025-09-23T14:27:50+00:00</updated>
+  <icon>https://or.2024-10-24.zip/logo.jpg</icon>
+  <subtitle>一个免费开源的食谱项目，分享健康美味的DIY食谱。</subtitle>
+
+  <entry>
+    <title>香煎蘑菇</title>
+    <link href="https://example.com/r.html?id=20250923-01"/>
+    <id>openrecipe-mushroom-20250923-01</id>
+    <updated>2025-09-23T12:50:00+08:00</updated>
+    <published>2025-09-23T12:50:00+08:00</published>
+    <author>
+      <name>OpenRecipe</name>
+    </author>
+    <content type="html"><![CDATA[
+      <h3>准备材料</h3>
+      <ul>
+        <li>蘑菇：300克</li>
+        <li>大蒜：2瓣</li>
+        <li>新鲜百里香：几小枝</li>
+        <li>橄榄油：适量</li>
+        <li>黄油：15克</li>
+        <li>盐和黑胡椒：适量</li>
+      </ul>
+      <h3>烹饪步骤</h3>
+      <ol>
+        <li>处理蘑菇：用湿布或软刷子轻轻擦拭蘑菇，去除表面的泥土，不要用水洗。将蘑菇切成厚片。</li>
+        <li>准备蒜蓉：将大蒜去皮，切成蒜蓉。</li>
+        <li>加热锅具：将平底锅用中高火预热，倒入适量橄榄油。</li>
+        <li>煎蘑菇：将蘑菇片放入锅中，平铺开来，不要频繁翻动。待一面煎至金黄色后，再翻面煎另一面。</li>
+        <li>加入调料：蘑菇两面都煎好后，加入黄油和蒜蓉。黄油融化后，会产生香气。</li>
+        <li>调味：加入新鲜百里香、盐和黑胡椒，快速翻炒均匀。</li>
+        <li>出锅：关火，将香煎蘑菇盛出，即可享用。</li>
+      </ol>
+    ]]></content>
+    <media:content url="https://example.com/images/20250923-01.jpg" medium="image"/>
+  </entry>
+
+  <entry>
+    <title>自制酸奶</title>
+    <link href="https://example.com/r.html?id=20250923-02"/>
+    <id>openrecipe-yogurt-20250923-02</id>
+    <updated>2025-09-23T12:51:00+08:00</updated>
+    <published>2025-09-23T12:51:00+08:00</published>
+    <author>
+      <name>OpenRecipe</name>
+    </author>
+    <content type="html"><![CDATA[
+      <h3>准备材料</h3>
+      <ul>
+        <li>牛奶：500毫升（推荐使用全脂牛奶，成品口感更浓郁）</li>
+        <li>酸奶菌粉：1小包</li>
+        <li>糖：20-30克（可选，或根据个人喜好调整）</li>
+        <li>消毒容器：一个干净的玻璃瓶或密封盒</li>
+      </ul>
+      <h3>烹饪步骤</h3>
+      <ol>
+        <li>容器消毒：将玻璃瓶或容器用开水烫洗5分钟，或者放入微波炉高温消毒3分钟。</li>
+        <li>加热牛奶：小火加热至约45℃，牛奶表面冒小气泡即可。</li>
+        <li>溶解糖和菌粉：将糖（如果加的话）和酸奶菌粉倒入牛奶中，搅拌均匀。</li>
+        <li>分装：将混合好的牛奶倒入已经消毒的容器中，盖上盖子。</li>
+        <li>发酵：酸奶机 8-10 小时；或烤箱 40℃ 余温；或保温箱+热水保持温度。</li>
+        <li>冷藏：发酵完成后放入冰箱冷藏至少2小时。</li>
+        <li>享用：可直接吃，或加入水果、坚果、蜂蜜、果酱。</li>
+      </ol>
+    ]]></content>
+    <media:content url="https://example.com/images/20250923-02.jpg" medium="image"/>
+  </entry>
+
+</feed>
