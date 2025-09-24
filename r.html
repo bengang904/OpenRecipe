@@ -64,64 +64,17 @@
 </div>
 
 <script>
-  function formatDescription(xmlDoc) {
-    let html = "";
-
-    // ingredients
-    const ingredients = xmlDoc.querySelectorAll("recipe > ingredients > ingredient");
-    if (ingredients.length > 0) {
-      html += "<h3>准备材料</h3><ul>";
-      ingredients.forEach(item => {
-        html += `<li>${item.textContent}</li>`;
-      });
-      html += "</ul>";
-    }
-
-    // steps
-    const steps = xmlDoc.querySelectorAll("recipe > steps > step");
-    if (steps.length > 0) {
-      html += "<h3>烹饪步骤</h3><ol>";
-      steps.forEach(step => {
-        html += `<li>${step.textContent}</li>`;
-      });
-      html += "</ol>";
-    }
-
-    return html;
-  }
-
   fetch('rss.xml')
     .then(response => response.text())
     .then(str => {
       const parser = new DOMParser();
       const xmlDoc = parser.parseFromString(str, "application/xml");
-
       const items = xmlDoc.querySelectorAll("item");
       const container = document.getElementById("recipe-container");
 
-      items.forEach((item) => {
+      items.forEach(item => {
         const title = item.querySelector("title")?.textContent || "无标题";
-
-        // 解析 description 里的结构化 XML，并加根节点 <recipe>
-        const descNode = item.querySelector("description");
-        let descriptionContent = "";
-        if (descNode) {
-          const descText = descNode.textContent.trim();
-          if (descText.startsWith("<")) {
-            const wrapped = `<recipe>${descText}</recipe>`;
-            const innerXml = parser.parseFromString(wrapped, "application/xml");
-            if (!innerXml.querySelector("parsererror")) {
-              descriptionContent = formatDescription(innerXml);
-            } else {
-              console.error("解析失败:", descText);
-              descriptionContent = descText.replace(/\n/g, "<br>");
-            }
-          }
-        }
-
-        const guid = item.querySelector("guid")?.textContent || "";
-        let recipeId = guid.match(/(\d{8}-\d{2})$/)?.[1] || guid;
-
+        const description = item.querySelector("description")?.textContent || "";
         const pubDate = item.querySelector("pubDate")?.textContent || new Date().toISOString();
         const formattedDate = new Date(pubDate).toLocaleString('zh-CN', {
           year: 'numeric',
@@ -133,10 +86,11 @@
           hour12: false
         });
 
+        // 创建食谱卡片
         const recipeCard = document.createElement("div");
         recipeCard.classList.add("recipe-card");
-        recipeCard.id = recipeId;
 
+        // 标题
         const recipeTitle = document.createElement("h1");
         recipeTitle.textContent = title;
         recipeCard.appendChild(recipeTitle);
@@ -153,11 +107,13 @@
           }
         }
 
-        const recipeDescription = document.createElement("div");
-        recipeDescription.classList.add("recipe-content");
-        recipeDescription.innerHTML = descriptionContent;
-        recipeCard.appendChild(recipeDescription);
+        // 文章内容（HTML格式）
+        const recipeContent = document.createElement("div");
+        recipeContent.classList.add("recipe-content");
+        recipeContent.innerHTML = description;  // 直接使用 description 中的 HTML
+        recipeCard.appendChild(recipeContent);
 
+        // 发布时间
         const dateElement = document.createElement("p");
         dateElement.classList.add("recipe-date");
         dateElement.textContent = `发布于：${formattedDate}`;
@@ -165,24 +121,8 @@
 
         container.appendChild(recipeCard);
       });
-
-      // 定位到特定食谱
-      const params = new URLSearchParams(window.location.search);
-      const idParam = params.get("id");
-      const hash = window.location.hash;
-
-      let target = null;
-      if (idParam) {
-        target = document.getElementById(idParam);
-      } else if (hash) {
-        target = document.querySelector(hash);
-      }
-
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth" });
-      }
     })
-    .catch(error => console.error('Error fetching the XML file:', error));
+    .catch(error => console.error('加载 RSS 文件失败:', error));
 </script>
 
 </body>
