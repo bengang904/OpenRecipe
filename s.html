@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+   <link rel="shortcut icon" href="logo.jpg" type="image/jpeg">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>安全页 - OpenRecipe</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&family=Montserrat:wght@400;700&display=swap');
+        :root {
+            --primary-color: #6a994e; 
+            --secondary-color: #a7c957; 
+            --accent-color: #f28482;  
+            --text-color: #344e41;   
+            --light-bg: #fefae0;      
+            --card-bg: #ffffff;       
+            --card-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            --header-gradient-start: #6a994e;
+            --header-gradient-end: #8bc34a; 
+        }
+
+        body {
+            font-family: 'Noto Sans SC', 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.7;
+            text-rendering: optimizeLegibility;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 80px; 
+            background: linear-gradient(135deg, var(--header-gradient-start), var(--header-gradient-end));
+            color: white;
+            position: relative;
+            overflow: hidden;
+            border-bottom-left-radius: 50% 30px; 
+            border-bottom-right-radius: 50% 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 15px;
+            opacity: 0.9;
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 120px; 
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23fefae0" fill-opacity="1" d="M0,192L60,192C120,192,240,192,360,186.7C480,181,600,171,720,176C840,181,960,203,1080,213.3C1200,224,1320,224,1380,224L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>') center / cover no-repeat;
+            opacity: 1;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-top: 40px;
+        }
+
+        .section-title h2 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            position: relative;
+            display: inline-block;
+            font-weight: 700;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px; 
+            height: 5px;
+            background-color: var(--accent-color);
+            border-radius: 3px;
+        }
+
+        .tips-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            gap: 25px;
+        }
+
+        .tips-list li {
+            background-color: var(--card-bg);
+            padding: 25px 30px;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            border-left: 6px solid var(--secondary-color); 
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .tips-list li:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+        }
+
+        .tips-list li h4 {
+            margin: 0 0 12px 0;
+            color: var(--primary-color);
+            font-size: 1.3em;
+            font-weight: 700;
+        }
+
+        .tips-list li p {
+            margin: 0;
+            color: var(--text-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 80px;
+            background: linear-gradient(135deg, var(--header-gradient-end), var(--header-gradient-start));
+            color: white;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        footer p {
+            font-size: 1em;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <p>“健康不是特权人士的专属，共同反抗劣质与谎言！”</p>
+        <div class="wave"></div>
+    </header>
+    <div class="container">
+        <section class="section-title">
+            <h2>健康指南</h2>
+        </section>
+
+        <section>
+            <ul class="tips-list">
+                <li>
+                    <h4>水源</h4>
+                    <p>烹饪的水源可以选择矿泉水/纯净饮用水，大多数地区自来水的管道或水源供应本身污染严重，带有重金属污染物、消毒副产物 DBPs 卤乙酸类 HAAs 等非挥发性副产物，煮沸几乎不起作用。</p>
+                </li>
+                 <li>
+                    <h4>食用油</h4>
+                    <p>选择正规优质厂家的食用油。推荐使用特级初榨的橄榄油，抗氧化、防心血管疾病。但是要避免高温重复使用加热。</p>
+                </li>
+                <li>
+                    <h4>烹饪过程</h4>
+                    <p>确保加工、烹饪全程无交叉污染、彻底杀菌、保持营养。切菜板、刀具、碗盘严格区分生食与熟食。肉类和海鲜中心温度 ≥ 75℃。</p>
+                </li>
+                <li>
+                    <h4>食材选购</h4>
+                    <p>原材料选择有资质供应商或品牌，包装完好、无破损、标签齐全，颜色自然柔和，无异味。尽量可追溯，降低一切下游风险。</p>
+                </li>
+                <li>
+                    <h4>存放食材</h4>
+                    <p>存放食材不宜过久，定期检查防止食材微生物污染和化学变质，过期食材立即丢弃。按类型分区存放，避免交叉污染。</p>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <footer>
+        <p><i class="fas fa-home home-icon"></i> <a href="index.html"> 主页面 </a></p>
+    </footer>
+</body>
+</html>
