@@ -86,9 +86,15 @@
           hour12: false
         });
 
+        // 使用 guid 生成 id，保证以字母开头
+        const guid = item.querySelector("guid")?.textContent || "";
+        const idSuffix = guid.match(/(\d{8}-\d{2})$/)?.[1] || guid;
+        const recipeId = "recipe-" + idSuffix;
+
         // 创建食谱卡片
         const recipeCard = document.createElement("div");
         recipeCard.classList.add("recipe-card");
+        recipeCard.id = recipeId;
 
         // 标题
         const recipeTitle = document.createElement("h1");
@@ -110,7 +116,7 @@
         // 文章内容（HTML格式）
         const recipeContent = document.createElement("div");
         recipeContent.classList.add("recipe-content");
-        recipeContent.innerHTML = description;  // 直接使用 description 中的 HTML
+        recipeContent.innerHTML = description; // 直接使用 description 中的 HTML
         recipeCard.appendChild(recipeContent);
 
         // 发布时间
@@ -121,6 +127,26 @@
 
         container.appendChild(recipeCard);
       });
+
+      // 自动滚动到指定食谱
+      const params = new URLSearchParams(window.location.search);
+      const idParam = params.get("id");
+      const hash = window.location.hash;
+
+      let target = null;
+      if (idParam) {
+        target = document.getElementById("recipe-" + idParam);
+      } else if (hash) {
+        target = document.querySelector(hash);
+      }
+
+      if (target) {
+        // 延迟滚动确保 DOM 渲染完成
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+
     })
     .catch(error => console.error('加载 RSS 文件失败:', error));
 </script>
