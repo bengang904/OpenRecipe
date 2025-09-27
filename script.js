@@ -6,7 +6,7 @@ function autoRedirectByLanguage() {
         'en': 'https://or.2024-10-24.zip/en/',    // English (en-US, en-GB, en-*)
         'ja': 'https://or.2024-10-24.zip/ja/',    // 日本語 (ja-JP, ja)
         'ko': 'https://or.2024-10-24.zip/ko/',    // 한국어 (ko-KR, ko)
-        'fr': 'https://or.2024-10-24.zip/fr/'     // Français (fr-FR, fr)
+        'ru': 'https://or.2024-10-24.zip/ru/'     // Русский (ru-RU, ru)
     };
 
     var targetPath = '';
@@ -15,7 +15,7 @@ function autoRedirectByLanguage() {
     else if (userLang.startsWith('en')) targetPath = langMap['en'];
     else if (userLang.startsWith('ja')) targetPath = langMap['ja'];
     else if (userLang.startsWith('ko')) targetPath = langMap['ko'];
-    else if (userLang.startsWith('fr')) targetPath = langMap['fr'];
+    else if (userLang.startsWith('ru')) targetPath = langMap['ru']; 
 
     if (targetPath && window.location.href !== targetPath) {
         window.location.replace(targetPath);
