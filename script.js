@@ -3,11 +3,11 @@ function autoRedirectByLanguage() {
     var targetPath = '';
 
     var langMap = {
-        'zh-tw': 'tw/index.html', // 繁體中文
-        'en': 'en/index.html',    // English (en-US, en-GB, en-*)
-        'ja': 'ja/index.html',    // 日本語 (ja-JP, ja)
-        'ko': 'ko/index.html',    // 한국어 (ko-KR, ko)
-        'fr': 'fr/index.html'     // Français (fr-FR, fr)
+        'zh-tw': 'https://or.2024-10-24.zip/tw/index.html', // 繁體中文
+        'en': 'https://or.2024-10-24.zip/en/index.html',    // English (en-US, en-GB, en-*)
+        'ja': 'https://or.2024-10-24.zip/ja/index.html',    // 日本語 (ja-JP, ja)
+        'ko': 'https://or.2024-10-24.zip/ko/index.html',    // 한국어 (ko-KR, ko)
+        'fr': 'https://or.2024-10-24.zip/fr/index.html'     // Français (fr-FR, fr)
     };
 
     if (userLang.startsWith('zh-tw')) {
@@ -40,4 +40,5 @@ document.addEventListener('click', function(event) {
         menu.classList.remove('show');
     }
 });
+
 document.addEventListener('DOMContentLoaded', autoRedirectByLanguage);
