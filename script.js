@@ -1,0 +1,43 @@
+function autoRedirectByLanguage() {
+    var userLang = (navigator.language || navigator.userLanguage || 'zh-CN').toLowerCase();
+    var targetPath = '';
+
+    var langMap = {
+        'zh-tw': 'tw/index.html', // 繁體中文
+        'en': 'en/index.html',    // English (en-US, en-GB, en-*)
+        'ja': 'ja/index.html',    // 日本語 (ja-JP, ja)
+        'ko': 'ko/index.html',    // 한국어 (ko-KR, ko)
+        'fr': 'fr/index.html'     // Français (fr-FR, fr)
+    };
+
+    if (userLang.startsWith('zh-tw')) {
+        targetPath = langMap['zh-tw'];
+    } else if (userLang.startsWith('en')) {
+        targetPath = langMap['en'];
+    } else if (userLang.startsWith('ja')) {
+        targetPath = langMap['ja'];
+    } else if (userLang.startsWith('ko')) {
+        targetPath = langMap['ko'];
+    } else if (userLang.startsWith('fr')) {
+        targetPath = langMap['fr'];
+    }
+    
+    if (targetPath) {
+        window.location.replace(targetPath);
+    }
+}
+
+function toggleLanguageMenu() {
+    var menu = document.getElementById("language-menu");
+    menu.classList.toggle("show");
+}
+
+document.addEventListener('click', function(event) {
+    var dropdown = document.querySelector('.language-dropdown');
+    var menu = document.getElementById("language-menu");
+    var toggle = document.getElementById("language-toggle");
+    if (event.target !== toggle && !dropdown.contains(event.target) && menu && menu.classList.contains('show')) {
+        menu.classList.remove('show');
+    }
+});
+document.addEventListener('DOMContentLoaded', autoRedirectByLanguage);
