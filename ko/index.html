@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="shortcut icon" href="https://or.2024-10-24.zip/logo.jpg" type="image/jpeg">
+    <link rel="stylesheet" href="https://or.2024-10-24.zip/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css"> 
+    <title>소개 페이지 - OpenRecipe</title>
+</head>
+<body>
+    <div class="container" style="position: relative;">
+        <div class="language-dropdown">
+            <i class="fas fa-globe language-icon" id="language-toggle" title="ko-KR" onclick="toggleLanguageMenu()"></i>
+           <div class="dropdown-content" id="language-menu">
+                <a href="index.html" data-lang="zh-CN" data-country="cn">
+                    <span class="flag-icon flag-icon-cn"></span> 简体中文(zh-CN)
+                </a>
+                 <a href="tw/index.html" data-lang="zh-TW" data-country="tw">
+                    <span class="flag-icon flag-icon-tw"></span> 繁體中文(zh-TW)
+                </a>
+                <a href="en/index.html" data-lang="en-US" data-country="gb">
+                    <span class="flag-icon flag-icon-gb"></span> English(en-US)
+                </a>
+                <a href="ja/index.html" data-lang="ja-JP" data-country="jp">
+                    <span class="flag-icon flag-icon-jp"></span> 日本語(ja-JP)
+                </a>
+                <a href="ko/index.html" data-lang="ko-KR" data-country="kr">
+                    <span class="flag-icon flag-icon-kr"></span> 한국어(ko-KR)
+                </a>
+                <a href="fr/index.html" data-lang="fr-FR" data-country="fr">
+                    <span class="flag-icon flag-icon-fr"></span> Français(fr-FR)
+                </a>
+            </div>
+        </div>
+        <header>
+            <h1>OpenRecipe: 오픈소스 요리책 프로젝트</h1>
+            <blockquote>
+                "우리는 식량 주권을 되찾습니다. 혁명은 매 끼니마다 시작됩니다!"
+            </blockquote>
+            <p>이 프로젝트는 무료 오픈 소스 레시피를 제공합니다. 저희는 레시피를 공개적으로 공유하여 누구나 자신만의 건강한 요리를 만들 수 있도록 하는 데 전념합니다. 산업화된 식품의 족쇄를 완전히 끊을 수는 없지만, 조작의 비밀스러움을 줄이고 상업적 식단의 위선적인 기준에 도전하는 것을 목표로 합니다. 이 페이지는 주로 한국어 사용 지역을 대상으로 하며, '오픈 레시피'와 '식품 건강'이라는 두 가지 주요 섹션으로 나뉩니다.</p>
+        </header>
+        <img src="https://or.2024-10-24.zip/logo.jpg" alt="이것은 우리의 상징입니다" class="hero-image">
+
+        <main>
+            <div class="section">
+                <h2>어떤 요리법이 있나요?</h2>
+                <ul>
+                    <li><strong>하위 페이지:</strong> 가다 <i class="fas fa-utensils utensils-icon"></i> <a href="r.html">레시피 페이지</a> 그것을 보려면.</li>
+                    <li><strong><i class="fas fa-rss rss-icon"></i> RSS：</strong> 추가하다 <a href="rss.xml"  target="_blank">RSS.xml</a> 订阅。我们推荐的开源 RSS 信息聚合器前往 <i class="fab fa-github github-icon"></i>：<a href="https://github.com/yang991178/fluent-reader/releases" target="_blank">Github Release</a></li>
+                </ul>
+            </div>
+            <div class="section">
+                <h2>식품 건강, 잠재적 안전 위험 방지</h2>
+                <ul>
+                    <li><strong>하위 페이지:</strong> 가다 <i class="fas fa-exclamation-triangle danger-icon"></i> <a href="s.html">보안 페이지</a> 그것을 보려면.</li>
+                </ul>
+            </div>
+            <div class="call-to-action">
+                <h3><i class="fas fa-bell bell-icon"></i> 지금 무료 구독에 가입하세요!</h3>
+                </div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; OR.2024-10-24.zip 오픈소스 공유.</p>
+    </footer>
+     <script src="https://or.2024-10-24.zip/script.js"></script>
+</body>
+</html>
