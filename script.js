@@ -1,51 +1,46 @@
 function autoRedirectByLanguage() {
-    var userLang = (navigator.language || navigator.userLanguage || 'zh-CN').toLowerCase();
-    var langMap = {
-        'zh-tw': 'https://or.2024-10-24.zip/tw/', // 繁體中文
-        'en': 'https://or.2024-10-24.zip/en/',    // English (en-US, en-GB, en-*)
-        'ja': 'https://or.2024-10-24.zip/ja/',    // 日本語 (ja-JP, ja)
-        'ko': 'https://or.2024-10-24.zip/ko/',    // 한국어 (ko-KR, ko)
-        'ru': 'https://or.2024-10-24.zip/ru/',    // Русский (ru-RU, ru)
-        'ar': 'https://or.2024-10-24.zip/ar/',    // العربية (ar-*) 
-        'es': 'https://or.2024-10-24.zip/es/',    // Español (es-ES, es-*) 
-        'fr': 'https://or.2024-10-24.zip/fr/'     // Français (fr-FR, fr-*) 
-    };
+    var userLang = (navigator.language || navigator.userLanguage || 'zh-CN').toLowerCase();
 
-    var targetPath = '';
+    var langMap = {
+        'zh-tw': 'https://or.2024-10-24.zip/tw/', // 繁體中文
+        'en': 'https://or.2024-10-24.zip/en/',    // English (en-US, en-GB, en-*)
+        'ja': 'https://or.2024-10-24.zip/ja/',    // 日本語 (ja-JP, ja)
+        'ko': 'https://or.2024-10-24.zip/ko/',    // 한국어 (ko-KR, ko)
+        'ru': 'https://or.2024-10-24.zip/ru/'     // Русский (ru-RU, ru)
+    };
 
-    if (userLang.startsWith('zh-tw')) targetPath = langMap['zh-tw'];
-    else if (userLang.startsWith('en')) targetPath = langMap['en'];
-    else if (userLang.startsWith('ja')) targetPath = langMap['ja'];
-    else if (userLang.startsWith('ko')) targetPath = langMap['ko'];
-    else if (userLang.startsWith('ru')) targetPath = langMap['ru'];
-    else if (userLang.startsWith('ar')) targetPath = langMap['ar']; 
-    else if (userLang.startsWith('es')) targetPath = langMap['es'];
-    else if (userLang.startsWith('fr')) targetPath = langMap['fr'];
+    var targetPath = '';
 
-    if (targetPath && window.location.href !== targetPath) {
-        window.location.replace(targetPath);
-    }
+    if (userLang.startsWith('zh-tw')) targetPath = langMap['zh-tw'];
+    else if (userLang.startsWith('en')) targetPath = langMap['en'];
+    else if (userLang.startsWith('ja')) targetPath = langMap['ja'];
+    else if (userLang.startsWith('ko')) targetPath = langMap['ko'];
+    else if (userLang.startsWith('ru')) targetPath = langMap['ru']; 
+
+    if (targetPath && window.location.href !== targetPath) {
+        window.location.replace(targetPath);
+    }
 }
 
 function toggleLanguageMenu() {
-    var menu = document.getElementById("language-menu");
-    if (menu) menu.classList.toggle("show");
+    var menu = document.getElementById("language-menu");
+    if (menu) menu.classList.toggle("show");
 }
 
 document.addEventListener('click', function(event) {
-    var dropdown = document.querySelector('.language-dropdown');
-    var menu = document.getElementById("language-menu");
-    var toggle = document.getElementById("language-toggle");
-    
-    if (!dropdown) return;
-    
-    if (event.target !== toggle && !dropdown.contains(event.target) && menu && menu.classList.contains('show')) {
-        menu.classList.remove('show');
-    }
+    var dropdown = document.querySelector('.language-dropdown');
+    var menu = document.getElementById("language-menu");
+    var toggle = document.getElementById("language-toggle");
+    
+    if (!dropdown) return;
+    
+    if (event.target !== toggle && !dropdown.contains(event.target) && menu && menu.classList.contains('show')) {
+        menu.classList.remove('show');
+    }
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
-        autoRedirectByLanguage();
-    }
-});
+    if (window.location.pathname === '/' || window.location.pathname.endsWith('index.html')) {
+        autoRedirectByLanguage();
+    }
+});修改
